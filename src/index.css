@@ -282,6 +282,13 @@ section {
 }
 /* Media Queries */
 @media screen and (max-width: 568px) {
+  .navbar_logo{
+    font-size:1rem;
+    background-color:#e2d7e7;
+    color: rgb(197, 113, 113);
+    padding: .25rem;
+    margin-left:0;
+  }
   .navbar_links {
     display: none;
     flex-direction: column;

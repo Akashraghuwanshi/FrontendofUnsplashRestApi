@@ -11,11 +11,16 @@ function App() {
   const [searchQuery ,setSearchQuery] =useState("");
   const [favouritePhotos,setFavouritePhotos] = useState([]);
   // console.log(favouritePhotos);
+  const [isFocused,setIsFocused] =useState('false')
 
   const handleSearch = (event)=>{
     event.preventDefault();
     setSearchQuery(event.target.elements[0].value);
   }
+
+  const toggleFocus =()=>{
+     setIsFocused(!isFocused)
+  };
 
   const handleAddFavourite = (photo)=>{
     setFavouritePhotos((prevFavourites)=>[...prevFavourites,photo])
@@ -29,8 +34,8 @@ function App() {
   return ( 
     <Router>
       <div>
-        <nav className="navbar">
-          <div className="navbar_logo">
+        <nav className={`navbar ${isFocused ? 'focused' : ''}`}>
+          <div className="navbar_logo" onClick={toggleFocus}>
             FotoFlix
           </div>
           <form action="" className='navbar_search_form' onSubmit={handleSearch}>
@@ -44,8 +49,8 @@ function App() {
             </button>
           </form>
           <div className="navbar_links">
-            <Link to="/">Home</Link>
-            <Link to="/favourites">Favourites</Link>
+            <Link to="/" onClick={toggleFocus}>Home</Link>
+            <Link to="/favourites" onClick={toggleFocus}>Favourites</Link>
           </div>
         </nav>
         <Routes>

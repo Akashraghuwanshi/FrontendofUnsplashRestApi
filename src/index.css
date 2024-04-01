@@ -280,7 +280,29 @@ section {
   display: flex;
   align-items: center;
 }
+/* Media Queries */
+@media screen and (max-width: 568px) {
+  .navbar_links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    z-index: 99;
+  }
 
+  .navbar.focused .navbar_links {
+    display: flex;
+  }
+
+  .navbar_links a {
+    margin: 0.5rem 0;
+  }
+}
 
 /* Form  */
 

@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import {useState,useEffect} from 'react';
 import {FaHeart,FaDownload,FaShare, FaThumbsUp} from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
 
-const Photos = ({searchQuery,onFavouriteClick}) => {
+const Photos = ({searchQuery,onFavouriteClick,handleSearch}) => {
    
  const [loading,setLoading] = useState(false);
   const [photos,setPhotos] = useState([]);
@@ -14,6 +16,14 @@ const Photos = ({searchQuery,onFavouriteClick}) => {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null); // State to store the index of the selected photo
  const [page,setPage] =useState(1);
   // console.log(page);
+  const [showLinks,setShowLinks] =useState(true)
+
+  const toggleLinks =()=>{
+    if(window.innerWidth<=568){
+      setShowLinks(!showLinks)
+    }
+ };
+
  
  useEffect(()=>{
 
@@ -118,6 +128,28 @@ const slidesArray = selectedPhotoIndex !== null ? photos.map(photo=>({src:photo.
     /* Return component */
 
 return (
+    <div>
+      <nav className={`navbar ${showLinks ? 'focused' : ''}`}>
+          <div className="navbar_logo" onClick={toggleLinks}>
+            FotoFlix
+          </div>
+           <form action="" className='navbar_search_form' onSubmit={handleSearch}>
+            <input 
+            className='form-input'
+            type="text" 
+            placeholder='search'
+            />
+           <button type='submit' className='search-btn'>
+              <FaSearch/>
+            </button>
+          </form>
+         { showLinks && (
+                        <div className="navbar_links">
+                   <Link to="/" onClick={toggleLinks}>Home</Link>
+                   <Link to="/favourites" onClick={toggleLinks}>Favourites</Link>
+                 </div>
+                 )}
+        </nav> 
     <main >
       <section className='photos' >
       <div className="photos-center">
@@ -180,6 +212,7 @@ return (
       currentIndex={selectedPhotoIndex} // Pass the index of the selected photo to the lightbox
       />
  </main>
+ </div>
   )
 }
 

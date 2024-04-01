@@ -224,6 +224,7 @@ section {
 
 
 
+
 /* navbar  */
 .navbar {
   position: fixed;
@@ -234,7 +235,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #fff;
+  background-color:white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
   z-index: 100;
@@ -251,6 +252,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 
@@ -285,7 +287,7 @@ section {
   .navbar_logo{
     font-size:1rem;
     background-color:#e2d7e7;
-    color: rgb(197, 113, 113);
+    color: black;
     padding: .25rem;
     margin-left:0;
   }
@@ -298,7 +300,7 @@ section {
     background-color: #fff;
     width: 100%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
+    padding: 0.5rem;
     z-index: 99;
   }
 
@@ -307,7 +309,8 @@ section {
   }
 
   .navbar_links a {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
+    font-size:1rem;
   }
 }
 
@@ -334,8 +337,8 @@ section {
 }
 
 .search-btn {
-  background-color: #260535;
-  color: #fff;
+  background-color: white;
+  color: black;
   border: none;
   outline: none;
   padding: 0.75rem 1.25rem;
@@ -346,11 +349,11 @@ section {
 }
 
 .search-btn:hover {
-  background-color: rgb(81, 16, 103);
+  background-color: rgb(192, 157, 169);
 }
 
 .search-btn:focus {
-  box-shadow: 0 0 0 2px rgb(81, 16, 103);
+  box-shadow: 0 0 0 2px black;
 }
 
 
@@ -437,10 +440,7 @@ section {
   }
 }
 
-.loading {
-  text-align: center;
-  padding: 3rem;
-}
+
 
 
 /* Favourites Section */

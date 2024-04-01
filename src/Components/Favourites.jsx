@@ -1,10 +1,16 @@
 
 import React from 'react'
+import { useState } from 'react';
 import {FaHeart,FaDownload,FaShare, FaThumbsUp} from 'react-icons/fa';
 
 const Favourites = ({favouritePhotos,handleRemoveFavourite}) => {
 
+  const [isFocused,setIsFocused] =useState('false')
   // console.log(favouritePhotos);
+
+  const toggleFocus =()=>{
+    setIsFocused(!isFocused)
+ };
 
      const handleFaHeartBtn =(PhotoId)=>{
       handleRemoveFavourite(PhotoId)
@@ -28,10 +34,10 @@ const Favourites = ({favouritePhotos,handleRemoveFavourite}) => {
 
   return (
     <div>
-      <nav className="navbar">
-        <div className="navbar_logo">Fotoflix</div>
+      <nav className={`navbar ${isFocused ? 'focused' :""}`}>
+        <div className="navbar_logo" onClick={toggleFocus}>Fotoflix</div>
         <div className="navbar_links">
-          <a href="/">Home</a>
+          <a href="/" onClick={toggleFocus}>Home</a>
         </div>
       </nav>
       <main>

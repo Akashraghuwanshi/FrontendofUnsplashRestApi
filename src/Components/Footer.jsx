@@ -6,11 +6,11 @@ const Footer = () => {
   return (
     <footer style={styles.footer}>
          <a href='https://github.com/akashraghuwanshi'target='_blank' 
-         style={{fontSize:'2rem',margin:'.5rem',color:'black'}}>
+         style={{fontSize:'2rem',margin:'.5rem',color:'black'}} rel="noreferrer">
           <FaGithubSquare/>
           </a>
          <a href='https://www.linkedin.com/in/akashraghuwanshi/' target='_blank'
-          style={{fontSize:'2rem',color:'blue'}}>
+          style={{fontSize:'2rem',color:'blue'}} rel="noreferrer">
             <IoLogoLinkedin />
             </a>
          <p style={{fontSize:'1rem'}}>

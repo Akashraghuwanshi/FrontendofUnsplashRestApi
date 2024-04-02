@@ -4,7 +4,7 @@ import Photos from './Components/Photos';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 
 import {useState} from 'react';
-
+import Footer from './Components/Footer';
 
 function App() {
  
@@ -29,8 +29,7 @@ function App() {
 
   return ( 
     <Router>
-      
-         <Routes>
+        <Routes>
           <Route 
           path="/"
            element={ <Photos
@@ -48,8 +47,10 @@ function App() {
           />}
           /> 
         </Routes>
-       
+        <Footer/>
     </Router>
+       
+    
   );
 }
 

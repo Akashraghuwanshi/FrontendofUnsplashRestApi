@@ -16,13 +16,15 @@ const Photos = ({searchQuery,onFavouriteClick,handleSearch}) => {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null); // State to store the index of the selected photo
  const [page,setPage] =useState(1);
   // console.log(page);
-  const [showLinks,setShowLinks] =useState(true)
+  const [showLinks,setShowLinks] =useState(false)
 
   const toggleLinks =()=>{
     if(window.innerWidth<=568){
       setShowLinks(!showLinks)
     }
- };
+  };
+// console.log(showLinks);
+   
 
  
  useEffect(()=>{
@@ -143,7 +145,7 @@ return (
               <FaSearch/>
             </button>
           </form>
-         { showLinks && (
+         { (showLinks || window.innerHeight>568) && (
                         <div className="navbar_links">
                    <Link to="/" onClick={toggleLinks}>Home</Link>
                    <Link to="/favourites" onClick={toggleLinks}>Favourites</Link>
